@@ -1,0 +1,19 @@
+#chart .domain {
+    display: none;
+}
+
+#chart .labels text {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#chart .tick line {
+    display: none;
+}
+
+#chart .tick text {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #666;
+}
+
