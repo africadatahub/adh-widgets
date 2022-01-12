@@ -70,7 +70,7 @@ export class App extends React.Component {
     render() {
         return (
             <>
-            <div style={{maxWidth: '300px'}}>
+            <div style={{maxWidth: '300px'}} className="relative">
                 <header className={this.state.accent_bg + ' rounded-t-xl py-5'}>
                     <h1 className='text-white text-center font-semibold leading-5 text-lg'>COVID-19<br/>VACCINATIONS</h1>
                 </header>
