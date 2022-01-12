@@ -55,12 +55,8 @@ export class App extends React.Component {
 
         }
 
-        
-        
-
         // https://api.mediahack.co.za/adh/vaccine-tracker/vaccinations-sources.php
         // https://api.mediahack.co.za/adh/vaccine-tracker/vaccinations-types.php
-
 
     }
 

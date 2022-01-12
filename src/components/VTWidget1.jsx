@@ -30,10 +30,9 @@ export class VTWidget1 extends React.Component {
             this.setState({ date: this.formatDate(date)});
         })
 
-        axios.get(`https://api.mediahack.co.za/adh/vaccine-tracker/vaccinations-types.php`)
-        .then((response) => {
-            console.log('types', response);
-        })
+        // axios.get(`https://api.mediahack.co.za/adh/vaccine-tracker/vaccinations-types.php`)
+        // .then((response) => {
+        // })
 
         axios.get(`https://api.mediahack.co.za/adh/vaccine-tracker/vaccinations-sources.php`)
         .then((response) => {
