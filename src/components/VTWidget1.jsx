@@ -148,7 +148,7 @@ export class VTWidget1 extends React.Component {
         return (
             <>
                 
-                <section className={this.props.headerBg + '  text-center pt-0 pb-3 leading-none'}>
+                <section className={this.props.headerBg + '  text-center pt-0 pb-3 leading-none relative'}>
                     <div className="rounded-full border-2 border-white w-12 h-12 -translate-y-2/4 -translate-x-2/4 mt-2 overflow-hidden absolute left-1/2">
                         <ReactCountryFlag svg countryCode={this.props.country_iso_2} style={{fontSize: '3.8em', height: 'unset', maxWidth: 'unset'}} className="absolute inset-1/2 -translate-y-2/4  -translate-x-2/4"/>
                     </div>
