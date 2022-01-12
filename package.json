@@ -1,10 +1,9 @@
 {
   "name": "adh-widgets",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "copyfiles --flat ./src/adh-data.png ./dist && parcel ./src/index.html",
+    "start": "parcel ./src/index.html",
     "build": "copyfiles --flat ./src/adh-data.png ./dist && parcel build ./src/index.html"
   },
   "dependencies": {
@@ -13,14 +12,14 @@
     "country-iso-3-to-2": "^1.1.0",
     "d3": "^7.3.0",
     "parcel": "^2.0.1",
-    "react": "^17.0.2",
+    "react": ">=16",
     "react-country-flag": "^3.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5",
+    "postcss": "^8.1.0",
     "postcss-import": "^14.0.2",
-    "tailwindcss": "^3.0.12"
+    "tailwindcss": "^3.0.13"
   }
 }
