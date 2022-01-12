@@ -2,8 +2,16 @@
 
 ## USAGE:
 --------
+
+ADH Widgets uses [pym.js](http://blog.apps.npr.org/pym.js/)
+
+
 ```html
-<iframe src="https://adh-widgets.netlify.app/?country=KEN"></frame>
+<div id="adh-widget"></div>
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>
+    var pymParent = new pym.Parent('adh-widget', 'https://adh-widgets.netlify.app/?country=KEN', {});
+</script>
 ```
 
 ### URL PARAMETERS:
