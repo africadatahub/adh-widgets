@@ -17,7 +17,6 @@ export class VTWidget1 extends React.Component {
     }
 
     componentDidMount() {
-
         
 
         const urlParams = new URLSearchParams(window.location.search)
@@ -26,7 +25,7 @@ export class VTWidget1 extends React.Component {
         .then((response) => {
             this.setState({ country_data: response.data[response.data.length - 1] });
             let date = new Date(response.data[response.data.length - 1].date_of_report);
-            
+
             this.setState({ date: this.formatDate(date)});
         })
 
@@ -145,8 +144,8 @@ export class VTWidget1 extends React.Component {
 
     render() {
         return (
+            this.props.country_iso_3 != undefined ?
             <>
-                
                 <section className={this.props.headerBg + '  text-center pt-0 pb-3 leading-none relative'}>
                     <div className="rounded-full border-2 border-white w-12 h-12 -translate-y-2/4 -translate-x-2/4 mt-2 overflow-hidden absolute left-1/2">
                         <ReactCountryFlag svg countryCode={this.props.country_iso_2} style={{fontSize: '3.8em', height: 'unset', maxWidth: 'unset'}} className="absolute inset-1/2 -translate-y-2/4  -translate-x-2/4"/>
@@ -168,8 +167,9 @@ export class VTWidget1 extends React.Component {
                         <h1 className={this.props.accentText + ' font-bold text-2xl leading-none py-0'}>{this.state.country_data.total_vaccine_doses_to_date != undefined ? d3.format(",")(this.state.country_data.total_vaccine_doses_to_date) : ''}</h1>
                         <span className="text-gray-600 font-bold text-xs">VACCINES ADMINISTERED</span>
                     </div>
-                </section>     
+                </section>
             </>
+            : ''
         )
     }
 

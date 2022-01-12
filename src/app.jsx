@@ -15,9 +15,9 @@ export class App extends React.Component {
             header_bg: 'bg-orange-50',
             bg: 'bg-slate-100',
             footer: 'bg-slate-300',
-            country_name: 'South Africa',
-            country_iso_3: 'ZAF',
-            country_iso_2: 'ZA'
+            country_name: undefined,
+            country_iso_3: undefined,
+            country_iso_2: undefined
         }
     }
 
@@ -71,7 +71,7 @@ export class App extends React.Component {
                     <h1 className='text-white text-center font-semibold leading-5 text-lg'>COVID-19<br/>VACCINATIONS</h1>
                 </header>
 
-                { this.state.widget == 'vt1' ? 
+                { this.state.widget == 'vt1' && this.state.country_iso_3 != undefined ? 
                     <VTWidget1
                         country_iso_3={this.state.country_iso_3}
                         country_iso_2={this.state.country_iso_2}
