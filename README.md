@@ -1,1 +1,33 @@
-# adh-widgets
+# ADH Widgets
+
+## USAGE:
+--------
+```html
+<iframe src="https://adh-widgets.netlify.app/?country=KEN"></frame>
+```
+
+### URL PARAMETERS:
+
+Use the Alpha-2 or Alpha-3 ISO code.
+[Find ISO codes here.](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes#:~:text=Current%20ISO%203166%20country%20codes%20%20%20,%20%20ALA%20%2015%20more%20rows%20) 
+
+-----
+```javascript
+?country=ZAF // Use the Alpha-3 or Alpha-2 ISO CODE
+```
+
+### OPTIONAL THEMING PARAMETERS:
+----
+
+Use the [TailwindCSS Palette](https://tailwindcss.com/docs/customizing-colors) 
+
+
+```javascript
+&accent= // &accent=blue-800 
+&header_bg= // &header_bg=lime-100
+&bg= // &bg=gray-100
+&footer= // &footer=lime-100
+```
+
+
+
