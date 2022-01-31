@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import ReactCountryFlag from 'react-country-flag';
 import * as d3 from 'd3';
-import './VTWidget1.css';
+import { formatDate } from '../format-date';
 
 export class VTWidget1 extends React.Component {
     constructor(){
@@ -18,20 +17,13 @@ export class VTWidget1 extends React.Component {
 
     componentDidMount() {
         
-
-        const urlParams = new URLSearchParams(window.location.search)
-
         axios.get(`https://api.mediahack.co.za/adh/vaccine-tracker/vaccinations-by-country.php?cc=${this.props.country_iso_3}`)
         .then((response) => {
             this.setState({ country_data: response.data[response.data.length - 1] });
             let date = new Date(response.data[response.data.length - 1].date_of_report);
 
-            this.setState({ date: this.formatDate(date)});
+            this.setState({ date: formatDate(date)});
         })
-
-        // axios.get(`https://api.mediahack.co.za/adh/vaccine-tracker/vaccinations-types.php`)
-        // .then((response) => {
-        // })
 
         axios.get(`https://api.mediahack.co.za/adh/vaccine-tracker/vaccinations-sources.php`)
         .then((response) => {
@@ -57,9 +49,7 @@ export class VTWidget1 extends React.Component {
                     value: parseInt(vaccine_sources.donated),
                     percent: parseInt(vaccine_sources.donated) / vaccines_received * 100,
                     color: '#82A7C9'
-
                 }
-
             ]
 
             this.setState({ vaccines_received: vaccines_received });
@@ -127,25 +117,12 @@ export class VTWidget1 extends React.Component {
                 .attr('opacity',1)
     }
 
-    formatDate(date) {
-        const dob = new Date(date);
-      
-        const monthNames = [
-          'January', 'February', 'March', 'April', 'May', 'June', 'July',
-           'August', 'September', 'October', 'November', 'December'
-        ];
-      
-        const day = dob.getDate();
-        const monthIndex = dob.getMonth();
-        const year = dob.getFullYear();
-
-        return `${day} ${monthNames[monthIndex]} ${year}`;
-    }
+    
 
     render() {
         return (
             this.props.country_iso_3 != undefined ?
-            <>
+            <div id="vt1">
                 <section className={this.props.headerBg + '  text-center pt-0 pb-3 leading-none relative'}>
                     <div className="rounded-full border-2 border-white w-12 h-12 -translate-y-2/4 -translate-x-2/4 mt-2 overflow-hidden absolute left-1/2">
                         <ReactCountryFlag svg countryCode={this.props.country_iso_2} style={{fontSize: '3.8em', height: 'unset', maxWidth: 'unset'}} className="absolute inset-1/2 -translate-y-2/4  -translate-x-2/4"/>
@@ -168,7 +145,7 @@ export class VTWidget1 extends React.Component {
                         <span className="text-gray-600 font-bold text-xs">VACCINES ADMINISTERED</span>
                     </div>
                 </section>
-            </>
+            </div>
             : ''
         )
     }

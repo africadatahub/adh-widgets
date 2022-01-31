@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { countryCodes } from './country-codes';
 import { VTWidget1 } from './components/VTWidget1';
+import { VTWidget2 } from './components/VTWidget2';
 
 import './app.css';
 
@@ -78,6 +79,18 @@ export class App extends React.Component {
                         country_name={this.state.country_name}
                         headerBg={this.state.header_bg}
                         accentBg={this.state.accent_bg}
+                        accentText={this.state.accent_text}
+                        accent={this.state.accent}
+                        bg={this.state.bg}
+                    />
+                : '' }
+
+                { this.state.widget == 'vt2' && this.state.country_iso_3 != undefined ? 
+                    <VTWidget2
+                        country_iso_3={this.state.country_iso_3}
+                        country_iso_2={this.state.country_iso_2}
+                        country_name={this.state.country_name}
+                        headerBg={this.state.header_bg}
                         accentText={this.state.accent_text}
                         bg={this.state.bg}
                     />

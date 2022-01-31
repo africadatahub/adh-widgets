@@ -2,6 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;1,300&display=swap');
+
 body {
     font-family: 'Work Sans', sans-serif !important;
 }
+
+/* VACCINE TRACKER 1 */
+
+#vt1 #chart .domain {
+    display: none;
+}
+
+#vt1 #chart .labels text {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#vt1 #chart .tick line {
+    display: none;
+}
+
+#vt1 #chart .tick text {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #666;
+}
+
+/* VACCINE TRACKER 2 */
+
+#vt2 #chart text {
+    fill: #6B6D76 !important;
+}
+
+#vt2 #chart .tick line {
+    stroke: #6B6D76 !important;
+}
+
+#vt2 #chart .xAxis .tick text {
+    display: none;
+}
+
+#vt2 #chart .xAxis .tick line {
+    display: none;
+}
+
+#vt2 #chart .xAxis .domain path {
+    stroke: #6B6D76 !important;
+}
+
+#vt2 #chart .xAxis .domain {
+    display: none;
+}
+
+#vt2 #chart .yAxis .tick line {
+    display: none;
+}
+
+#vt2 #chart .yAxis .domain {
+    display: none;
+}
+
