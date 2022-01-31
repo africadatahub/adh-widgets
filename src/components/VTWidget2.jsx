@@ -53,7 +53,7 @@ export class VTWidget2 extends React.Component {
                 
                 let total_vaccinations = this.state.country_data_filtered.reduce(
                     (accumVariable, curValue) => accumVariable + parseInt(curValue.daily_total)
-                    , this.state.total_vaccinations
+                    , 0
                 )
 
                 this.setState({ total_vaccinations: total_vaccinations });
