@@ -66,6 +66,7 @@ export class VTWidget2 extends React.Component {
 
                 this.setState({ loading: false });
                 this.drawChart();
+
             }, 1000)
         }
 
@@ -97,16 +98,21 @@ export class VTWidget2 extends React.Component {
             .attr('height', chart_settings.height)
             .attr('transform', 'translate(10,0)');
 
+        
         let yScale = d3.scaleLinear()
-            .domain([d3.max(this.state.country_data_filtered, (d) => d.daily_total ), 0])
+            .domain([0, d3.max(this.state.country_data_filtered.map((d) => parseInt(d.daily_total)))])
             .range([0, chart_settings.height - 10]);
+
+        let yScale2 = d3.scaleLinear()
+        .domain([d3.max(this.state.country_data_filtered.map((d) => parseInt(d.daily_total))), 0])
+        .range([0, chart_settings.height - 10]);
         
         let xScale = d3.scaleBand()
             .domain(this.state.country_data_filtered.map((d) => d.date_of_report))
             .range([0, chart_settings.width - chart_settings.xOffset - 10])
             .padding(0.2);
     
-        let yAxis = d3.axisLeft(yScale)
+        let yAxis = d3.axisLeft(yScale2)
             .ticks(5)
             .tickFormat(tickFormat);
 
@@ -124,7 +130,7 @@ export class VTWidget2 extends React.Component {
             .call(xAxis);
 
         svg.selectAll("line.horizontalGrid")
-            .data(yScale.ticks(5)).enter()
+            .data(yScale2.ticks(5)).enter()
             .append("line")
                 .attr('class', 'horizontalGrid')
                 .attr('x1', chart_settings.xOffset)
@@ -142,6 +148,7 @@ export class VTWidget2 extends React.Component {
             .data(this.state.country_data_filtered)
             .enter()
             .append('rect')
+                .attr('data-daily', (d) => d.daily_total)
                 .attr('x', (d,i) => xScale(d.date_of_report))
                 .attr('y', (d,i) => chart_settings.height - 10 )
                 .attr('width', xScale.bandwidth())
@@ -149,14 +156,10 @@ export class VTWidget2 extends React.Component {
                 .attr('y', (d,i) => chart_settings.height - yScale(parseInt(d.daily_total)) - 10 )
                 .attr('fill','#CBD5E1')
                 .attr('height',(d,i) => { 
-                    let height = yScale(parseInt(d.daily_total)) > -1 ? yScale(parseInt(d.daily_total)) : 0;
-                    return height;
+                   return yScale(parseInt(d.daily_total))
                 } );
         
     }
-
-    
-
     
 
     render() {
